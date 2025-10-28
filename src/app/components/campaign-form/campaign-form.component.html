@@ -1,0 +1,8 @@
+<h2>Criar Nova Campanha</h2>
+<form (ngSubmit)="addCampaign()">
+  <input name="name" [(ngModel)]="newCampaign.name" placeholder="Nome" required />
+  <input name="system" [(ngModel)]="newCampaign.system" placeholder="Sistema" required />
+  <textarea name="story" [(ngModel)]="newCampaign.story" placeholder="História"></textarea>
+  <br />
+  <button type="submit">Salvar</button>
+</form>
