@@ -1,8 +1,44 @@
-<h2>Criar Nova Campanha</h2>
-<form (ngSubmit)="addCampaign()">
-  <input name="name" [(ngModel)]="newCampaign.name" placeholder="Nome" required />
-  <input name="system" [(ngModel)]="newCampaign.system" placeholder="Sistema" required />
-  <textarea name="story" [(ngModel)]="newCampaign.story" placeholder="História"></textarea>
-  <br />
-  <button type="submit">Salvar</button>
-</form>
+<h2>{{ isEdit ? 'Editar Campanha' : 'Nova Campanha' }}</h2>
+
+<div class="form-layout">
+
+  
+  <div class="form-fields">
+
+    <label>Nome da Campanha</label>
+    <input type="text" [(ngModel)]="model.name" name="name" required>
+
+    <label for="system">Sistema</label>
+    <select id="system" [(ngModel)]="model.system" name="system">
+      <option value="">Selecione...</option>
+      <option value="D&D 5e">D&D 5e</option>
+      <option value="Tormenta20">Tormenta20</option>
+      <option value="Call of Cthulhu">Call of Cthulhu</option>
+      <option value="Ordem Paranormal">Ordem Paranormal</option>
+    </select>
+
+    <label>Descrição</label>
+    <textarea [(ngModel)]="model.description" name="description"></textarea>
+
+    <label>Anotações</label>
+    <textarea [(ngModel)]="model.notes" name="notes"></textarea>
+
+    <label>Número de Sessões</label>
+    <input type="number" [(ngModel)]="model.sessions" name="sessions">
+
+    <label>Personagens</label>
+    <textarea [(ngModel)]="model.characters" name="characters"></textarea>
+
+    <div class="buttons">
+      <button type="submit" (click)="save()">Salvar</button>
+      <button type="button" class="cancel" (click)="cancel()">Cancelar</button>
+    </div>
+
+  </div>
+
+  
+  <div class="system-preview" *ngIf="model.system">
+    <img [src]="getSystemPreview(model.system)" alt="Preview do sistema">
+  </div>
+
+</div>

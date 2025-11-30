@@ -1,0 +1,30 @@
+<h2>Editar Campanha</h2>
+
+<form (ngSubmit)="save()">
+
+  <label>Nome:</label>
+  <input type="text" [(ngModel)]="model.name" name="name">
+
+  <label>Sistema:</label>
+  <select [(ngModel)]="model.system" name="system">
+    <option value="D&D 5e">D&D 5e</option>
+    <option value="Pathfinder 2e">Pathfinder 2e</option>
+    <option value="Tormenta 20">Tormenta 20</option>
+    <option value="Call of Cthulhu">Call of Cthulhu</option>
+    <option value="Outro">Outro</option>
+  </select>
+
+  <label>Descrição:</label>
+  <textarea [(ngModel)]="model.description" name="description"></textarea>
+
+  <label>Anotações:</label>
+  <textarea [(ngModel)]="model.notes" name="notes"></textarea>
+
+  <label>Número de sessões:</label>
+  <input type="number" [(ngModel)]="model.sessions" name="sessions">
+
+  <label>Personagens:</label>
+  <textarea [(ngModel)]="model.characters" name="characters"></textarea>
+
+  <button type="submit">Salvar</button>
+</form>

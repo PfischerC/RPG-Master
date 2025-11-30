@@ -1,3 +1,22 @@
-<h2>Detalhes da Campanha</h2>
-<p>ID: {{ id }}</p>
-<!-- mais campos a implementar -->
+<div *ngIf="!campaign">
+  <p>Campanha não encontrada.</p>
+  <button routerLink="/">Voltar</button>
+</div>
+
+<div *ngIf="campaign">
+  <h2>{{ campaign.name }}</h2>
+
+  <p><strong>Sistema:</strong> {{ campaign.system }}</p>
+  <p><strong>Descrição:</strong> {{ campaign.description }}</p>
+
+  <p><strong>Anotações:</strong> {{ campaign.notes || '—' }}</p>
+  <p><strong>Número de sessões:</strong> {{ campaign.sessions ?? '—' }}</p>
+  <p><strong>Personagens:</strong> {{ campaign.characters || '—' }}</p>
+
+  <div class="actions">
+  <button (click)="edit()" title="Editar">✏️</button>
+  <button class="delete" (click)="delete()" title="Excluir">🗑️</button>
+  <button routerLink="/" title="Voltar">⬅️</button>
+</div>
+
+</div>

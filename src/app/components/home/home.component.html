@@ -1,0 +1,20 @@
+<h2>Minhas Campanhas</h2>
+
+<div class="cards">
+  <div
+    class="card"
+    *ngFor="let c of campaigns"
+    [routerLink]="['/campanha', c.id]"
+  >
+
+    <div class="card-header">
+  <span class="badge" [attr.data-system]="c.system">{{ c.system }}</span>
+  <span class="icon">{{ getIcon(c.system) }}</span>
+</div>
+
+
+    <h3>{{ c.name }}</h3>
+    <p>{{ c.description }}</p>
+
+  </div>
+</div>

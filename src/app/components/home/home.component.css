@@ -1,0 +1,69 @@
+h2 {
+  margin-bottom: 16px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  padding: 16px;
+  border-radius: 10px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+  margin-bottom: 8px;
+  color: #FFF;
+}
+
+.card p {
+  color: #CCCCCC;
+  opacity: 1;
+  line-height: 1.4;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+}
+
+
+.badge[data-system="D&D 5e"] {
+  background: #ee3232;
+}
+.badge[data-system="Tormenta20"] {
+  background: #eb8181;
+}
+.badge[data-system="Call of Cthulhu"] {
+  background: #2F8F83;
+}
+.badge[data-system="Ordem Paranormal"] {
+  background: #57187c;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.icon {
+  font-size: 20px;
+  opacity: 0.85;
+}

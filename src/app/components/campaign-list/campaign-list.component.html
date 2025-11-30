@@ -1,7 +1,8 @@
-<h2>Campanhas de RPG</h2>
+<h1>Campanhas de RPG</h1>
+
+
 <ul>
-  <li *ngFor="let c of campaigns">
+  <li *ngFor="let c of service.getAll()">
     <a [routerLink]="['/campanha', c.id]">{{ c.name }}</a> — {{ c.system }}
-    <p><em>{{ c.story }}</em></p>
   </li>
 </ul>
