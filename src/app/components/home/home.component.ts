@@ -14,6 +14,19 @@ export class HomeComponent {
 
   campaigns: Campaign[] = [];
 
+  readonly filters = ['Todas', 'Em andamento', 'Pausada', 'Finalizada'] as const;
+  selectedFilter: typeof this.filters[number] = 'Todas';
+
+  get filteredCampaigns(): Campaign[] {
+    if (this.selectedFilter === 'Todas') return this.campaigns;
+    return this.campaigns.filter(c => (c.status ?? 'Em andamento') === this.selectedFilter);
+  }
+
+  setFilter(filter: typeof this.filters[number]): void {
+    this.selectedFilter = filter;
+  }
+
+
   constructor(private service: CampaignService) {}
 
   ngOnInit() {

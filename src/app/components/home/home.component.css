@@ -93,3 +93,42 @@ h2 {
 .campaign-status.status-paused { background: #755516; color: #fff3ca; }
 .campaign-status.status-finalized { background: #555; color: #f2f2f2; }
 .archived-hint { color: #aaa; font-size: 12px; }
+
+
+/* Filtros por status - sem alterar as campanhas armazenadas. */
+.campaign-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 8px;
+}
+.filter-button, .clear-filter {
+  border: 1px solid #555;
+  border-radius: 8px;
+  background: #252525;
+  color: #f2f2f2;
+  padding: 8px 14px;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.filter-button:hover, .clear-filter:hover { background: #383838; }
+.filter-button.active {
+  background: #365b83;
+  border-color: #74a8dc;
+  color: #fff;
+  font-weight: 700;
+}
+.filter-button:focus-visible, .clear-filter:focus-visible {
+  outline: 2px solid #a6cbf2;
+  outline-offset: 2px;
+}
+.filter-count { font-size: 13px; color: #bbb; margin: 8px 0 12px; }
+.empty-state {
+  padding: 28px 18px;
+  border: 1px dashed #555;
+  border-radius: 10px;
+  text-align: center;
+  color: #ccc;
+}
+.empty-state p { margin-bottom: 14px; }

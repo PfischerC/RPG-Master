@@ -1,10 +1,23 @@
 <h2>Minhas Campanhas</h2>
 
-<div class="cards">
+<div class="campaign-filters" role="group" aria-label="Filtrar campanhas por status">
+  <button
+    *ngFor="let filter of filters"
+    type="button"
+    class="filter-button"
+    [class.active]="selectedFilter === filter"
+    [attr.aria-pressed]="selectedFilter === filter"
+    (click)="setFilter(filter)"
+  >{{ filter === 'Pausada' ? 'Pausadas' : filter === 'Finalizada' ? 'Finalizadas' : filter }}</button>
+</div>
+
+<p class="filter-count">{{ filteredCampaigns.length }} {{ filteredCampaigns.length === 1 ? 'campanha encontrada' : 'campanhas encontradas' }}</p>
+
+<div class="cards" *ngIf="filteredCampaigns.length > 0; else noCampaigns">
   <div
     class="card"
     [class.card-finalized]="c.status === 'Finalizada'"
-    *ngFor="let c of campaigns"
+    *ngFor="let c of filteredCampaigns"
     [routerLink]="['/campanha', c.id]"
   >
 
@@ -21,3 +34,10 @@
 
   </div>
 </div>
+
+<ng-template #noCampaigns>
+  <div class="empty-state">
+    <p>Nenhuma campanha encontrada para este filtro.</p>
+    <button type="button" class="clear-filter" *ngIf="selectedFilter !== 'Todas'" (click)="setFilter('Todas')">Ver todas as campanhas</button>
+  </div>
+</ng-template>
