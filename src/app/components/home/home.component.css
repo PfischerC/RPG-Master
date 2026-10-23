@@ -67,3 +67,29 @@ h2 {
   font-size: 20px;
   opacity: 0.85;
 }
+
+/* Campanhas encerradas continuam acessíveis para consulta e reativação. */
+.card.card-finalized {
+  background: #202020;
+  border-color: #494949;
+  opacity: 0.56;
+  filter: grayscale(1);
+}
+.card.card-finalized:hover {
+  transform: none;
+  opacity: 0.78;
+  box-shadow: none;
+}
+.campaign-status {
+  margin-left: auto;
+  padding: 4px 8px;
+  border-radius: 20px;
+  background: #215d40;
+  color: #e8fff0;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.campaign-status.status-paused { background: #755516; color: #fff3ca; }
+.campaign-status.status-finalized { background: #555; color: #f2f2f2; }
+.archived-hint { color: #aaa; font-size: 12px; }

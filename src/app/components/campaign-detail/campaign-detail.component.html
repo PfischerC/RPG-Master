@@ -6,6 +6,7 @@
 <div *ngIf="campaign">
   <h2>{{ campaign.name }}</h2>
 
+  <p><strong>Status:</strong> <span class="detail-status" [class.finished]="campaign.status === 'Finalizada'">{{ campaign.status || 'Em andamento' }}</span></p>
   <p><strong>Sistema:</strong> {{ campaign.system }}</p>
   <p><strong>Descrição:</strong> {{ campaign.description }}</p>
 

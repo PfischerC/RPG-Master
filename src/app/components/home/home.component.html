@@ -3,6 +3,7 @@
 <div class="cards">
   <div
     class="card"
+    [class.card-finalized]="c.status === 'Finalizada'"
     *ngFor="let c of campaigns"
     [routerLink]="['/campanha', c.id]"
   >
@@ -10,11 +11,13 @@
     <div class="card-header">
   <span class="badge" [attr.data-system]="c.system">{{ c.system }}</span>
   <span class="icon">{{ getIcon(c.system) }}</span>
+  <span class="campaign-status" [class.status-paused]="c.status === 'Pausada'" [class.status-finalized]="c.status === 'Finalizada'">{{ c.status || 'Em andamento' }}</span>
 </div>
 
 
     <h3>{{ c.name }}</h3>
     <p>{{ c.description }}</p>
+    <small *ngIf="c.status === 'Finalizada'" class="archived-hint">Campanha encerrada · disponível para consulta</small>
 
   </div>
 </div>

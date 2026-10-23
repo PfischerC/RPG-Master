@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 
+export type CampaignStatus = 'Em andamento' | 'Pausada' | 'Finalizada';
+
 export interface Campaign {
   id: number;
+  status: CampaignStatus;
   name: string;
   system: string;
   description: string;
@@ -21,7 +24,9 @@ export class CampaignService {
 
   private load() {
     const raw = localStorage.getItem(this.storageKey);
-    this.campaigns = raw ? JSON.parse(raw) : [];
+    const stored: Campaign[] = raw ? JSON.parse(raw) : [];
+    // Compatibilidade com campanhas criadas antes do campo status.
+    this.campaigns = stored.map(c => ({ ...c, status: c.status ?? 'Em andamento' }));
   }
 
   private save() {
@@ -37,7 +42,7 @@ export class CampaignService {
   }
 
   create(data: Omit<Campaign, 'id'>) {
-    const newCampaign: Campaign = { id: Date.now(), ...data };
+    const newCampaign: Campaign = { id: Date.now(), ...data, status: data.status ?? 'Em andamento' };
     this.campaigns.push(newCampaign);
     this.save();
     return newCampaign;

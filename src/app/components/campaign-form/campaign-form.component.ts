@@ -15,6 +15,7 @@ import { CampaignService, Campaign } from '../../services/campaign.service';
 export class CampaignFormComponent {
   model: Partial<Campaign> = {
     name: '',
+    status: 'Em andamento',
     system: '',
     description: '',
     notes: '',

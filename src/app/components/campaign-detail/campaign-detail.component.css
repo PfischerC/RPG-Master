@@ -29,3 +29,6 @@ button.delete {
 button.delete:hover {
   background: #A83232;
 }
+
+.detail-status { font-weight: 600; color: #65c78c; }
+.detail-status.finished { color: #aaa; }
